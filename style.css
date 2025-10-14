@@ -1,0 +1,93 @@
+/* Reset some default styles */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* CSS variables for colors */
+:root {
+    --bg-color1: #667eea;
+    --bg-color2: #764ba2;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--bg-color1) 0%, var(--bg-color2) 100%);
+    position: relative;
+    overflow-x: hidden;
+
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0,auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+
+}
+
+/* Header styles */
+header{
+    text-align: center;
+    padding: 40px, 20px;
+    color: white;
+}
+
+h1{
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+
+}
+.subtitle{
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+
+/* Mood selection grid */
+#mood-selection{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    padding: 40px 0;
+
+}
+
+.mood-card{
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.mood-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.mood-emoji{
+    font-size: 4em;
+    margin-bottom: 15px;
+
+}
+
+.mood-name {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Results section - hidden by default */
+
+#result{
+    display: none;
+}
+
+
