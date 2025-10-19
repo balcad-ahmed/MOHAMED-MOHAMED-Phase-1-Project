@@ -1,10 +1,9 @@
 /* Reset some default styles */
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 
 /* CSS variables for colors */
 :root {
@@ -12,52 +11,49 @@
     --bg-color2: #764ba2;
 }
 
-body{
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     min-height: 100vh;
     background: linear-gradient(135deg, var(--bg-color1) 0%, var(--bg-color2) 100%);
     position: relative;
     overflow-x: hidden;
-
 }
 
-.container{
+.container {
     max-width: 1200px;
-    margin: 0,auto;
+    margin: 0 auto;
     padding: 20px;
     position: relative;
     z-index: 1;
-
 }
 
 /* Header styles */
-header{
+header {
     text-align: center;
-    padding: 40px, 20px;
+    padding: 40px 20px;
     color: white;
 }
 
-h1{
+h1 {
     font-size: 3em;
     margin-bottom: 10px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-
 }
-.subtitle{
+
+.subtitle {
     font-size: 1.2em;
     opacity: 0.9;
 }
 
-
 /* Mood selection grid */
-#mood-selection{
+#mood-selection {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
     padding: 40px 0;
-
 }
 
-.mood-card{
+.mood-card {
     background: white;
     border-radius: 15px;
     padding: 30px;
@@ -72,10 +68,9 @@ h1{
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-.mood-emoji{
+.mood-emoji {
     font-size: 4em;
     margin-bottom: 15px;
-
 }
 
 .mood-name {
@@ -85,83 +80,76 @@ h1{
 }
 
 /* Results section - hidden by default */
-
-#result{
+#results {
     display: none;
 }
 
-
 /* Fade in animation for results */
-@keyframes fadeIn{
-    
-        from{
-            opacity: 0;
-            transform: translateY(20px);
-
-        }
-    
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
 }
 
-.result-headear{
+.result-header {
     text-align: center;
     color: white;
     margin-bottom: 30px;
-
 }
 
-.result-headear h2{
+.result-header h2 {
     font-size: 2.5em;
     margin-bottom: 10px;
     text-transform: capitalize;
 }
 
 /* Control buttons */
-.controls{
+.controls {
     display: flex;
     gap: 15px;
-justify-content:center ;
-margin-bottom:  30px;
-flex-wrap: wrap;
-
+    justify-content: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
 }
 
-
-
-.btn{
+.btn {
     padding: 12px 30px;
     border: none;
+    border-radius: 25px;
     font-size: 1em;
     cursor: pointer;
-    transition: all 0.3sec ease;
+    transition: all 0.3s ease;
     font-weight: bold;
 }
 
-
-.btn-primary{
+.btn-primary {
     background: white;
     color: #667eea;
-
 }
 
-.btn-primary:hover{
+.btn-primary:hover {
     transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(255,255,255,0.5);
-
+    box-shadow: 0 5px 15px rgba(255,255,255,0.3);
 }
 
 .btn-secondary {
-    background: rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.2);
     color: white;
-    border:2px solid white;
+    border: 2px solid white;
 }
 
-.btn-secondary:hover{
+.btn-secondary:hover {
     background: white;
     color: #667eea;
 }
 
 /* Playlist container */
-#playlist-container{
+#playlist-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
@@ -171,20 +159,21 @@ flex-wrap: wrap;
 .song-card {
     background: white;
     border-radius: 15px;
+    padding: 20px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
 }
 
 /* Slide in animation for songs */
-@keyframes slideIn{
-    from{
+@keyframes slideIn {
+    from {
         opacity: 0;
         transform: translateY(20px);
     }
-} to {
-    opacity: 1;
-    transform: translateY(0);
-
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .song-card:hover {
@@ -196,7 +185,7 @@ flex-wrap: wrap;
     margin-bottom: 15px;
 }
 
-.song-title{
+.song-title {
     font-size: 1.3em;
     font-weight: bold;
     color: #333;
@@ -217,11 +206,9 @@ flex-wrap: wrap;
     overflow: hidden;
     border-radius: 10px;
     background: #000;
-
 }
 
-
-.video-container {
+.video-container iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -232,20 +219,30 @@ flex-wrap: wrap;
 }
 
 /* Floating background particles */
-.particles{
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.particle {
     position: absolute;
-    background: rgba(255,255,255,0.3);
+    background: rgba(255, 255, 255, 0.3);
     border-radius: 50%;
     animation: float 15s infinite ease-in-out;
 }
 
 /* Position each particle differently */
-.particles:nth-child(1) {
-width: 80px;
-height: 80px;
-top: 10%;
-left: 10%;
-animation-delay: 0s
+.particle:nth-child(1) {
+    width: 80px;
+    height: 80px;
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
 }
 
 .particle:nth-child(2) {
@@ -328,6 +325,3 @@ animation-delay: 0s
         width: 200px;
     }
 }
-
-
-

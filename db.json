@@ -1,0 +1,188 @@
+{
+  "playlists": {
+    "happy": [
+      {
+        "id": 1,
+        "title": "Happy",
+        "artist": "Pharrell Williams",
+        "spotifyId": "60nZcImufyMA1MKQY3dcCH",
+        "albumArt": "https://i.scdn.co/image/ab67616d0000b27386a8ab515de4b7aef28cd631"
+      },
+      {
+        "id": 2,
+        "title": "Good Vibrations",
+        "artist": "The Beach Boys",
+        "spotifyId": "0t0OOAd9NRUpu1j5pVZlQY",
+        "albumArt": "https://i.scdn.co/image/ab67616d0000b2738f87eb89c8a4e5ef6a4d8c1a"
+      },
+      {
+        "id": 3,
+        "title": "Walking On Sunshine",
+        "artist": "Katrina & The Waves",
+        "spotifyId": "05wIrZSwuaVWhcv5FfqeH0",
+        "albumArt": "https://i.scdn.co/image/ab67616d0000b2737b25c072237f29ee50025fdc"
+      },
+      {
+        "id": 4,
+        "title": "Uptown Funk",
+        "artist": "Mark Ronson ft. Bruno Mars",
+        "spotifyId": "32OlwWuMpZ6b0aN2RZOeMS",
+        "albumArt": "https://i.scdn.co/image/ab67616d0000b273a9f6c04ba168640b48aa5795"
+      }
+    ],
+    "sad": [
+      {
+        "id": 1,
+        "title": "Someone Like You",
+        "artist": "Adele",
+        "spotifyId": "1zwMYTA5nlNjZxYrvBB2pV",
+        "albumArt": "https://i.scdn.co/image/ab67616d0000b273ba5db46f4b838ef6027e6f96"
+      },
+      {
+        "id": 2,
+        "title": "The Night We Met",
+        "artist": "Lord Huron",
+        "spotifyId": "0QZ5yyl6B6utIWkxeBDxQN",
+        "albumArt": "https://i.scdn.co/image/ab67616d0000b2738265a3a6d3b4f7fc0c8cf7c5"
+      },
+      {
+        "id": 3,
+        "title": "Hurt",
+        "artist": "Johnny Cash",
+        "spotifyId": "5Y3sTfoU7S2djSf1s7wYib",
+        "albumArt": "https://i.scdn.co/image/ab67616d0000b2732f7cd4538b747e58374c3c5b"
+      },
+      {
+        "id": 4,
+        "title": "Fix You",
+        "artist": "Coldplay",
+        "spotifyId": "7LVHVU3tWfcxj5aiPFEW4Q",
+        "albumArt": "https://i.scdn.co/image/ab67616d0000b2738ff7c3580d429c8212b9a3b5"
+      }
+    ],
+    "energetic": [
+      {
+        "id": 1,
+        "title": "Eye of the Tiger",
+        "artist": "Survivor",
+        "spotifyId": "2KH16WveTQWT6KOG9Rg6e2",
+        "albumArt": "https://i.scdn.co/image/ab67616d0000b273a991995542d50a691b9ae5be"
+      },
+      {
+        "id": 2,
+        "title": "Thunderstruck",
+        "artist": "AC/DC",
+        "spotifyId": "57bgtoPSgt236HzfBOd8kj",
+        "albumArt": "https://i.scdn.co/image/ab67616d0000b273a2e12630fabb26c97c5c31d6"
+      },
+      {
+        "id": 3,
+        "title": "We Will Rock You",
+        "artist": "Queen",
+        "spotifyId": "54flyrjcdnQdco7300avMJ",
+        "albumArt": "https://i.scdn.co/image/ab67616d0000b273e319baafd16e84f040e8bb8a"
+      },
+      {
+        "id": 4,
+        "title": "Lose Yourself",
+        "artist": "Eminem",
+        "spotifyId": "5Z01UMMf7V1o0MzF86s6WJ",
+        "albumArt": "https://i.scdn.co/image/ab67616d0000b2730b51f8d91f3a21e8426361ae"
+      }
+    ],
+    "chill": [
+      {
+        "id": 1,
+        "title": "Weightless",
+        "artist": "Marconi Union",
+        "spotifyId": "3Rx14VYHerJ7xdnR1s1Yk6",
+        "albumArt": "https://i.scdn.co/image/ab67616d0000b273b3c1e6b063a58e08b64c7c6a"
+      },
+      {
+        "id": 2,
+        "title": "Electric Feel",
+        "artist": "MGMT",
+        "spotifyId": "3FtYbEfBqAlGO46NUDQSAt",
+        "albumArt": "https://i.scdn.co/image/ab67616d0000b2734b292ed7c3c5d7c8f6d17c5c"
+      },
+      {
+        "id": 3,
+        "title": "Riptide",
+        "artist": "Vance Joy",
+        "spotifyId": "3JvrhDOgAt6p7K8mDyZwRd",
+        "albumArt": "https://i.scdn.co/image/ab67616d0000b2734bc3b56d34b6f294b5b3a84e"
+      }
+    ],
+    "romantic": [
+      {
+        "id": 1,
+        "title": "Perfect",
+        "artist": "Ed Sheeran",
+        "spotifyId": "0tgVpDi06FyKpA1z0VMD4v",
+        "albumArt": "https://i.scdn.co/image/ab67616d0000b273ba5db46f4b838ef6027e6f96"
+      },
+      {
+        "id": 2,
+        "title": "All of Me",
+        "artist": "John Legend",
+        "spotifyId": "3U4isOIWM3VvDubwSI3y7a",
+        "albumArt": "https://i.scdn.co/image/ab67616d0000b2734c8a3bdfa24d7f42bff3c8d4"
+      },
+      {
+        "id": 3,
+        "title": "A Thousand Years",
+        "artist": "Christina Perri",
+        "spotifyId": "6lanRgr6wXibZr8KgzXxBl",
+        "albumArt": "https://i.scdn.co/image/ab67616d0000b2736b18b6a4314c8c1c3a0d9767"
+      }
+    ],
+    "focused": [
+      {
+        "id": 1,
+        "title": "Time",
+        "artist": "Hans Zimmer",
+        "spotifyId": "2Aq6XyZcGpS6bvqswtMXV6",
+        "albumArt": "https://i.scdn.co/image/ab67616d0000b2737a7c7395a3b9a3f7b8f7c9e0"
+      },
+      {
+        "id": 2,
+        "title": "Experience",
+        "artist": "Ludovico Einaudi",
+        "spotifyId": "1BncfTJAWxrsxyT9culBrj",
+        "albumArt": "https://i.scdn.co/image/ab67616d0000b2734b1b9b3c3c5d7c8f6d17c5c2"
+      }
+    ],
+    "party": [
+      {
+        "id": 1,
+        "title": "Party Rock Anthem",
+        "artist": "LMFAO",
+        "spotifyId": "0IkKz2J93C94Ei4BvDop7P",
+        "albumArt": "https://i.scdn.co/image/ab67616d0000b2738a30c37b4b7b54b2c4d73b6a"
+      },
+      {
+        "id": 2,
+        "title": "Uptown Funk",
+        "artist": "Mark Ronson ft. Bruno Mars",
+        "spotifyId": "32OlwWuMpZ6b0aN2RZOeMS",
+        "albumArt": "https://i.scdn.co/image/ab67616d0000b273a9f6c04ba168640b48aa5795"
+      }
+    ],
+    "nostalgic": [
+      {
+        "id": 1,
+        "title": "Wonderwall",
+        "artist": "Oasis",
+        "spotifyId": "2CT3r93YuSHtm57mjxvjhH",
+        "albumArt": "https://i.scdn.co/image/ab67616d0000b2738ff7c3580d429c8212b9a3b5"
+      },
+      {
+        "id": 2,
+        "title": "Mr. Brightside",
+        "artist": "The Killers",
+        "spotifyId": "003vvx7Niy0yvhvHt4a68B",
+        "albumArt": "https://i.scdn.co/image/ab67616d0000b2736c7112082b63beefffe40151"
+      }
+    ]
+  }
+}

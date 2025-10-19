@@ -9,12 +9,12 @@
 <body>
     <div class="container">
         <header>
-        <h1>🎵 Mood Playlist Generator</h1>    
-        <p class="subtitle">Pick your mood and get the perfect playlist</p>
+            <h1>🎵 Mood Playlist Generator</h1>
+            <p class="subtitle">Select your mood and discover the perfect soundtrack</p>
         </header>
 
-        <!-- Mood Selection - This shows first -->
-         <section id="mood-selection">
+        <!-- Mood Selection Section -->
+        <section id="mood-selection">
             <div class="mood-card" data-mood="happy">
                 <div class="mood-emoji">😊</div>
                 <div class="mood-name">Happy</div>
@@ -54,35 +54,33 @@
                 <div class="mood-emoji">🌅</div>
                 <div class="mood-name">Nostalgic</div>
             </div>
-         </section>
+        </section>
 
-         <!-- Results Section - Hidden until mood is picked -->
-         <secttion id="results">
+        <!-- Results Section -->
+        <section id="results">
             <div class="result-header">
-                <h2 id="select-mood-title"></h2>
-                <p>Your personalized playlist is ready!</p>
+                <h2 id="selected-mood-title"></h2>
+                <p>Here's your personalized playlist</p>
             </div>
 
             <div class="controls">
-                <button class="btn btn-primary" id="shuffle-btn">🔀 Shuffle Songs</button>
-                <button class="btn btn-secondary" id="schange-mood-btn">Pick Different Mood</button>
+                <button class="btn btn-primary" id="shuffle-btn">🔀 Shuffle</button>
+                <button class="btn btn-secondary" id="change-mood-btn">🔄 Change Mood</button>
             </div>
- 
-            <div id="playlist-container">
-                <!-- Playlist songs will go here -->
-            </div>
-          </secttion>
+
+            <div id="playlist-container"></div>
+        </section>
     </div>
 
-     <!-- Background floating dots -->
-      <div class="particles">
-        <div class="particles"></div>
-        <div class="particles"></div>
-        <div class="particles"></div>
-        <div class="particles"></div>
-        <div class="particles"></div>
-      </div>
-      
-      <script src="script.js"></script>
+    <!-- Floating particles -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
