@@ -126,3 +126,28 @@ async function findSpotifySong(searchTerm) {
         return null;
     }
 }
+
+// Get songs from my JSON Server
+async function getSongsFromJSON(mood) {
+    try {
+        console.log('Getting songs from JSON Server...');
+        
+        const response = await fetch(`${JSON_SERVER_URL}/playlists/${mood}`);
+        
+        if (!response.ok) {
+            throw new Error('JSON Server not working');
+        }
+        
+        const songs = await response.json();
+        
+        // Add source info to each song
+        return songs.map(song => ({
+            ...song,
+            source: 'cached'
+        }));
+        
+    } catch (error) {
+        console.log('JSON Server failed too');
+        return [];
+    }
+}
