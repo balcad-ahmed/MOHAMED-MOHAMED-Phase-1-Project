@@ -151,3 +151,52 @@ async function getSongsFromJSON(mood) {
         return [];
     }
 }
+
+// My main function to get songs - tries both sources!
+async function getSongsForMood(mood) {
+    console.log(`Getting songs for ${mood} mood...`);
+    
+    // First try: Spotify API (if it's working)
+    if (usingRealSpotify && spotifyToken) {
+        console.log('Trying Spotify API first...');
+        
+        const searches = moodPlaylists[mood].spotifySearches;
+        const spotifySongs = [];
+        
+        // Try each search term
+        for (let search of searches) {
+            const song = await findSpotifySong(search);
+            if (song) {
+                spotifySongs.push(song);
+                console.log(`Found: ${song.title}`);
+            }
+            
+            // Wait a bit so we don't spam Spotify
+            await new Promise(resolve => setTimeout(resolve, 200));
+            
+            // Stop when we have enough songs
+            if (spotifySongs.length >= 4) break;
+        }
+        
+        if (spotifySongs.length > 0) {
+            showMessage('Using live Spotify data!', 'good');
+            return spotifySongs;
+        }
+        
+        console.log('Spotify returned no songs, trying JSON...');
+    }
+    
+    // Second try: JSON Server
+    console.log('Trying JSON Server...');
+    const jsonSongs = await getSongsFromJSON(mood);
+    
+    if (jsonSongs.length > 0) {
+        showMessage('Using cached data', 'info');
+        return jsonSongs;
+    }
+    
+    // Last resort: hardcoded backup songs
+    console.log('Using backup songs...');
+    showMessage('Using backup data', 'warning');
+    return getBackupSongs(mood);
+}
