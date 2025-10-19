@@ -200,3 +200,116 @@ async function getSongsForMood(mood) {
     showMessage('Using backup data', 'warning');
     return getBackupSongs(mood);
 }
+
+
+// Backup songs in case everything else fails
+function getBackupSongs(mood) {
+    const backupSongs = {
+        happy: [
+            {
+                title: "Happy",
+                artist: "Pharrell Williams",
+                spotifyId: "60nZcImufyMA1MKQY3dcCH",
+                albumArt: "https://i.scdn.co/image/ab67616d0000b27386a8ab515de4b7aef28cd631",
+                source: 'backup'
+            }
+        ],
+        sad: [
+            {
+                title: "Someone Like You",
+                artist: "Adele",
+                spotifyId: "1zwMYTA5nlNjZxYrvBB2pV", 
+                albumArt: "https://i.scdn.co/image/ab67616d0000b273ba5db46f4b838ef6027e6f96",
+                source: 'backup'
+            }
+        ]
+    };
+    
+    return backupSongs[mood] || [];
+}
+
+// When the page loads
+document.addEventListener('DOMContentLoaded', async function() {
+    console.log('My Mood Playlist App is loading!');
+    
+    // Try to setup Spotify
+    await setupSpotify();
+    
+    // Make mood cards clickable
+    const moodCards = document.querySelectorAll('.mood-card');
+    moodCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const mood = this.getAttribute('data-mood');
+            chooseMood(mood);
+        });
+    });
+
+    // Setup buttons
+    document.getElementById('shuffle-btn').addEventListener('click', mixUpSongs);
+    document.getElementById('change-mood-btn').addEventListener('click', goBackToMoods);
+    
+    console.log('All ready! Click a mood to start :)');
+});
+
+// Show messages to user
+function showMessage(text, type) {
+    // Remove old message if exists
+    const oldMsg = document.getElementById('user-message');
+    if (oldMsg) oldMsg.remove();
+    
+    const msgDiv = document.createElement('div');
+    msgDiv.id = 'user-message';
+    msgDiv.textContent = text;
+    msgDiv.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 10px 15px;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        z-index: 1000;
+        background: ${type === 'good' ? '#48BB78' : 
+                     type === 'info' ? '#4299E1' : '#ED8936'};
+    `;
+    
+    document.body.appendChild(msgDiv);
+    
+    // Hide after 3 seconds
+    setTimeout(() => {
+        if (msgDiv.parentNode) {
+            msgDiv.remove();
+        }
+    }, 3000);
+}
+
+// When user picks a mood
+async function chooseMood(mood) {
+    currentMood = mood;
+    const moodInfo = moodPlaylists[mood];
+
+    // Change background colors
+    document.documentElement.style.setProperty('--bg-color1', moodInfo.color1);
+    document.documentElement.style.setProperty('--bg-color2', moodInfo.color2);
+
+    // Show results section
+    document.getElementById('mood-selection').style.display = 'none';
+    document.getElementById('results').style.display = 'block';
+
+    // Update title
+    document.getElementById('selected-mood-title').textContent = 
+        moodInfo.emoji + ' ' + mood.charAt(0).toUpperCase() + mood.slice(1) + ' Playlist';
+
+    // Show loading message
+    const loadingText = usingRealSpotify ? 
+        'Searching Spotify for perfect songs...' : 
+        'Loading your playlist...';
+    
+    document.getElementById('playlist-container').innerHTML = 
+        `<div style="color: white; text-align: center; font-size: 1.5em; padding: 40px;">
+            🎵 ${loadingText}
+        </div>`;
+
+    // Get the songs!
+    await loadPlaylist(mood);
+}
