@@ -91,3 +91,243 @@ h1{
 }
 
 
+/* Fade in animation for results */
+@keyframes fadeIn{
+    
+        from{
+            opacity: 0;
+            transform: translateY(20px);
+
+        }
+    
+}
+
+.result-headear{
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+
+}
+
+.result-headear h2{
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+/* Control buttons */
+.controls{
+    display: flex;
+    gap: 15px;
+justify-content:center ;
+margin-bottom:  30px;
+flex-wrap: wrap;
+
+}
+
+
+
+.btn{
+    padding: 12px 30px;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3sec ease;
+    font-weight: bold;
+}
+
+
+.btn-primary{
+    background: white;
+    color: #667eea;
+
+}
+
+.btn-primary:hover{
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255,255,255,0.5);
+
+}
+
+.btn-secondary {
+    background: rgba(255,255,255,0.5);
+    color: white;
+    border:2px solid white;
+}
+
+.btn-secondary:hover{
+    background: white;
+    color: #667eea;
+}
+
+/* Playlist container */
+#playlist-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding-bottom: 40px;
+}
+
+.song-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+/* Slide in animation for songs */
+@keyframes slideIn{
+    from{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+} to {
+    opacity: 1;
+    transform: translateY(0);
+
+}
+
+.song-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+.song-info {
+    margin-bottom: 15px;
+}
+
+.song-title{
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.song-artist {
+    color: #666;
+    font-size: 1em;
+}
+
+/* Spotify embed container */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #000;
+
+}
+
+
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+}
+
+/* Floating background particles */
+.particles{
+    position: absolute;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    animation: float 15s infinite ease-in-out;
+}
+
+/* Position each particle differently */
+.particles:nth-child(1) {
+width: 80px;
+height: 80px;
+top: 10%;
+left: 10%;
+animation-delay: 0s
+}
+
+.particle:nth-child(2) {
+    width: 60px;
+    height: 60px;
+    top: 70%;
+    left: 80%;
+    animation-delay: 2s;
+}
+
+.particle:nth-child(3) {
+    width: 100px;
+    height: 100px;
+    top: 40%;
+    left: 70%;
+    animation-delay: 4s;
+}
+
+.particle:nth-child(4) {
+    width: 50px;
+    height: 50px;
+    top: 80%;
+    left: 20%;
+    animation-delay: 6s;
+}
+
+.particle:nth-child(5) {
+    width: 70px;
+    height: 70px;
+    top: 20%;
+    left: 50%;
+    animation-delay: 8s;
+}
+
+/* Floating animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translateY(-30px) rotate(180deg);
+        opacity: 0.6;
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+    
+    .result-header h2 {
+        font-size: 1.8em;
+    }
+    
+    #mood-selection {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+    }
+    
+    .mood-card {
+        padding: 20px;
+    }
+    
+    .mood-emoji {
+        font-size: 3em;
+    }
+    
+    #playlist-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 200px;
+    }
+}
+
+
+
