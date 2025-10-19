@@ -403,3 +403,28 @@ function showError(message) {
             ${message}
         </div>`;
 }
+
+// Shuffle the songs
+function mixUpSongs() {
+    if (currentSongs.length > 0) {
+        // Simple shuffle - mix up the array
+        for (let i = currentSongs.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [currentSongs[i], currentSongs[j]] = [currentSongs[j], currentSongs[i]];
+        }
+        showPlaylist();
+        console.log('Songs shuffled!');
+    }
+}
+
+// Go back to mood selection
+function goBackToMoods() {
+    document.getElementById('results').style.display = 'none';
+    document.getElementById('mood-selection').style.display = 'grid';
+    
+    // Reset to default colors
+    document.documentElement.style.setProperty('--bg-color1', '#667eea');
+    document.documentElement.style.setProperty('--bg-color2', '#764ba2');
+    
+    console.log('Went back to mood selection');
+}
