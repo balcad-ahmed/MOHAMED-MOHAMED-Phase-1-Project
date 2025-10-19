@@ -313,3 +313,93 @@ async function chooseMood(mood) {
     // Get the songs!
     await loadPlaylist(mood);
 }
+
+// Load and show the playlist
+async function loadPlaylist(mood) {
+    try {
+        currentSongs = await getSongsForMood(mood);
+        
+        if (currentSongs.length > 0) {
+            showPlaylist();
+        } else {
+            showError('No songs found. Maybe try a different mood?');
+        }
+    } catch (error) {
+        console.log('Oops, something went wrong:', error);
+        showError('Failed to load songs. Please try again.');
+    }
+}
+
+// Display the songs on the page
+function showPlaylist() {
+    const container = document.getElementById('playlist-container');
+    container.innerHTML = '';
+
+    if (currentSongs.length === 0) {
+        container.innerHTML = '<div style="color: white; text-align: center; padding: 40px;">No songs available.</div>';
+        return;
+    }
+
+    currentSongs.forEach((song, index) => {
+        const songElement = document.createElement('div');
+        songElement.className = 'song-card';
+        
+        // Stagger the animation
+        songElement.style.animationDelay = `${index * 0.1}s`;
+        
+        // Different badge colors based on source
+        let sourceBadge = '';
+        if (song.source === 'live') {
+            sourceBadge = '<span style="background: green; color: white; padding: 2px 6px; border-radius: 3px; font-size: 0.7em; margin-left: 8px;">LIVE</span>';
+        } else if (song.source === 'cached') {
+            sourceBadge = '<span style="background: blue; color: white; padding: 2px 6px; border-radius: 3px; font-size: 0.7em; margin-left: 8px;">CACHED</span>';
+        }
+        
+        songElement.innerHTML = `
+            <div class="song-info">
+                ${song.albumArt ? `
+                    <img src="${song.albumArt}" alt="Album cover" 
+                         style="width: 60px; height: 60px; border-radius: 5px; margin-right: 15px; float: left;">
+                ` : ''}
+                <div style="overflow: hidden;">
+                    <div class="song-title">
+                        ${song.title}
+                        ${sourceBadge}
+                    </div>
+                    <div class="song-artist">${song.artist}</div>
+                    ${song.preview ? `
+                        <audio controls style="width: 100%; margin-top: 10px; height: 30px;">
+                            <source src="${song.preview}" type="audio/mpeg">
+                            Your browser doesn't support audio previews
+                        </audio>
+                    ` : ''}
+                    ${song.popularity ? `
+                        <div style="font-size: 0.8em; color: #666; margin-top: 5px;">
+                            Popularity: ${song.popularity}/100
+                        </div>
+                    ` : ''}
+                </div>
+            </div>
+            <div class="video-container">
+                <iframe 
+                    src="https://open.spotify.com/embed/track/${song.spotifyId}?utm_source=generator" 
+                    width="100%" 
+                    height="152" 
+                    frameborder="0" 
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        `;
+        
+        container.appendChild(songElement);
+    });
+}
+
+// Show error message
+function showError(message) {
+    document.getElementById('playlist-container').innerHTML = 
+        `<div style="color: white; text-align: center; font-size: 1.2em; padding: 40px;">
+            ${message}
+        </div>`;
+}
